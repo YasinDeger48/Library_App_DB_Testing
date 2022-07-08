@@ -26,4 +26,7 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//h3")
     public WebElement homePageTitleContent;
+
+    @FindBy(id = "tbl_books_info")
+    public WebElement searchResultText;  //Showing 1 to 10 of 929 entries
 }
