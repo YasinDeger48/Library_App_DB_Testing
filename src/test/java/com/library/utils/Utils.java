@@ -2,7 +2,12 @@ package com.library.utils;
 
 import com.library.pages.HomePage;
 import com.library.pages.LoginPage;
+import io.cucumber.java.it.Ma;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -241,6 +246,52 @@ public class Utils {
         }
 
         return result;
+    }
+
+
+
+    public static Map<String,String> getUserNameFromExcelForStudent(){
+
+        Map<String,String> UserNameAndPassWord = new HashMap<>();
+        
+        try {
+            FileInputStream file = new FileInputStream("Library credentials.xlsx");
+            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            XSSFSheet sheet = workbook.getSheet("library3");
+
+            for (int i = 0; i <sheet.getPhysicalNumberOfRows(); i++) {
+
+                UserNameAndPassWord.put(sheet.getRow(i).getCell(1).toString(),sheet.getRow(i).getCell(2).toString());
+
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return UserNameAndPassWord;
+    }
+
+    public static Map<String,String> getUserNameFromExcelForLibrarian(){
+
+        Map<String,String> UserNameAndPassWord = new HashMap<>();
+
+        try {
+            FileInputStream file = new FileInputStream("Library credentials.xlsx");
+            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            XSSFSheet sheet = workbook.getSheet("library3");
+
+            for (int i = 0; i <sheet.getPhysicalNumberOfRows(); i++) {
+
+                UserNameAndPassWord.put(sheet.getRow(i).getCell(6).toString(),sheet.getRow(i).getCell(7).toString());
+
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return UserNameAndPassWord;
     }
 
 }

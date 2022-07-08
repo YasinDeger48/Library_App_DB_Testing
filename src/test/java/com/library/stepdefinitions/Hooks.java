@@ -1,10 +1,14 @@
 package com.library.stepdefinitions;
 
 import com.library.utils.Driver;
+import com.library.utils.Utils;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
+import org.junit.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+
+import java.util.Map;
 
 
 public class Hooks {
@@ -15,12 +19,13 @@ public class Hooks {
 
         if (scenario.isFailed()){
 
-            final byte[] snapshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            byte[] snapshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(snapshot,"images/png",scenario.getName());
         }
 
         Driver.closeDriver();
     }
+
 
 
 
