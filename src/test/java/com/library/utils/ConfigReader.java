@@ -11,11 +11,9 @@ public class ConfigReader {
 
     private static Properties prop;
 
-    private static InputStream input = null;
-
     static {
         try {
-            input = new FileInputStream("configuration.properties");
+            InputStream input = new FileInputStream("configuration.properties");
             prop = new Properties();
             prop.load(input);
 
