@@ -1,5 +1,6 @@
 package com.library.pages;
 
+import io.cucumber.java.de.Wenn;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -40,5 +41,8 @@ public class HomePage extends BasePage{
 
     @FindBy(xpath = "//a[@class='btn btn-primary btn-sm  ']")
     public WebElement borrowBookButton;
+
+    @FindBy(id = "toast-container")
+    public WebElement toastMessage;
 
 }
