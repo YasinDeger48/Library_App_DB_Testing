@@ -143,6 +143,26 @@ public class Utils {
     }
 
 
+    public static int searchResultUIWithKey(int key) {
+
+        int result = 0;
+
+        String searchResultText = homePage.searchResultText.getText();
+
+        if (searchResultText.equals("No entries found")) {
+
+            return result;
+
+        } else {
+
+            String[] eachSearchResult = searchResultText.split(" ");
+
+            result = Integer.parseInt(eachSearchResult[key]);
+        }
+
+        return result;
+
+    }
     /**
      * This method returns String for selectByValue
      * <p>

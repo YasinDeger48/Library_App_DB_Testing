@@ -3,6 +3,8 @@ package com.library.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends BasePage{
 
 
@@ -29,4 +31,14 @@ public class HomePage extends BasePage{
 
     @FindBy(id = "tbl_books_info")
     public WebElement searchResultText;  //Showing 1 to 10 of 929 entries
+
+    @FindBy(xpath = "//tbody/tr/td")
+    public List<WebElement> eachTableItems;
+
+    @FindBy(xpath = "//tbody/tr")
+    public List<WebElement> eachTableRows;
+
+    @FindBy(xpath = "//a[@class='btn btn-primary btn-sm  ']")
+    public WebElement borrowBookButton;
+
 }
