@@ -122,19 +122,26 @@ public class SearchResultStepDefinitions {
     @When("User clicks the Borrow Book link")
     public void user_clicks_the_borrow_book_link() {
 
-
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.borrowBookButton.get(0)));
+        homePage.borrowBookButton.get(0).click();
 
     }
 
     @When("User sees the {string} top right side")
-    public void user_sees_the_top_right_side(String string) {
+    public void user_sees_the_top_right_side(String toastMessage) {
 
-
+        wait.until(ExpectedConditions.visibilityOf(homePage.toastMessage));
+        Assert.assertTrue(homePage.toastMessage.isDisplayed() && homePage.toastMessage.getText().equals(toastMessage));
 
     }
 
-    @Then("User sees own name on Borrowing By cell")
-    public void user_sees_own_name_on_borrowing_by_cell() {
+    @Then("User sees own name on Borrowed By cell as {string}")
+    public void user_sees_own_name_on_borrowing_by_cell(String name) {
+
+        Utils.waitFor(2);
+        String actualText = homePage.borrowedByCells.get(0).getText();
+
+        Assert.assertEquals(name,actualText);
 
 
 

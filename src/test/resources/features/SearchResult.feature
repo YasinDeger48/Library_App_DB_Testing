@@ -83,5 +83,6 @@ Feature: Search Results Feature Files
       Scenario: user search book and borrow it
         When User enters "Decca" in the searchBar
         And User clicks the Borrow Book link
-        And User sees the "message" top right side
-        Then User sees own name on Borrowing By cell
+        And User sees the "The book has been borrowed..." top right side
+        And User enters "Decca" in the searchBar
+        Then User sees own name on Borrowed By cell as "Test Student 28"

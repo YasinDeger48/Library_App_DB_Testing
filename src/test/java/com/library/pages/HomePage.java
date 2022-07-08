@@ -40,9 +40,11 @@ public class HomePage extends BasePage{
     public List<WebElement> eachTableRows;
 
     @FindBy(xpath = "//a[@class='btn btn-primary btn-sm  ']")
-    public WebElement borrowBookButton;
+    public List<WebElement> borrowBookButton;
 
     @FindBy(id = "toast-container")
     public WebElement toastMessage;
 
+    @FindBy(xpath = "//tbody/tr//td[7]")
+    public List<WebElement> borrowedByCells;
 }
