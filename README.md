@@ -7,7 +7,7 @@
 ## Clone the repository and make the desired code changes:
 
 ```sh
-git clone https://github.com/YasinDeger48/XFleet_Cucumber.git
+git clone https://github.com/YasinDeger48/Library_App_DB_Testing.git
 ```
 
 
